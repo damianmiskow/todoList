@@ -1,0 +1,12 @@
+.page-title {
+    color: black;
+    font-weight: bold;
+    font-size: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header {
+    
+}
