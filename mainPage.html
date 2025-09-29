@@ -13,10 +13,10 @@
 
         <!-- table title row --> 
         <div class = "titleRow">
-            <div class>Name</div>
-            <div class>Date</div>
-            <div class>Delete</div>
-            <div>Edit</div>
+            <div class = "tableElement">Name</div>
+            <div class = "tableElement">Date</div>
+            <div class = "tableElement">Delete</div>
+            <div class = "tableElement">Edit</div>
         </div>
         <div class = "toDoList">
             <!-- table task display --> 
@@ -29,13 +29,14 @@
         </div>
         <!-- table task add -->
         <div class = "inputRow">
-            <input type="text" placeholder=" Enter name of Task:">
-            <input type="date" placeholder=" Enter date due:">
-            <div></div>
-            <div></div>
+            <input class = "tableElement" type="text" placeholder=" Enter name of Task:">
+            <input class = "tableElement" type="date" placeholder=" Enter date due:">
+            <button class = "tableElement">Add</button>
+            <div class = "tableElement"></div>
 
         </div> 
         
+        <script src = './scripts/mainPage.js'></script>
 
     </body>
 </html>

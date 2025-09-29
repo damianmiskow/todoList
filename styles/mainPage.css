@@ -17,36 +17,39 @@
     
 }
 
-
-.titleRow {
-    margin-left: 25px;
-    margin-right: 25px;
+.tableElement {
     flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.titleRow {
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    display: flex;
     border: solid;
     font-size: 20px;
     font-weight: bold;
-    
+
 }
 
 .toDoListRow {
+    margin-top: 10px;
     margin-left: 25px;
     margin-right: 25px;
-    margin-top: 10px;
-    flex: 1;
     display: flex;
-    justify-content: space-evenly;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .inputRow {
+    margin-top: 10px;
     margin-left: 25px;
     margin-right: 25px;
-    margin-top: 10px;
-    flex: 1;
     display: flex;
-    justify-content: space-evenly;
     font-size: 20px;
-    align-items: center;
+    font-weight: bold;
 }
