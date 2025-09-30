@@ -53,3 +53,7 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.delete-button {
+    background-color: rgb(163, 28, 28);
+}

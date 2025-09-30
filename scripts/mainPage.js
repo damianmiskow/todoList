@@ -8,11 +8,11 @@ if (!todoList) {
     todoList = [{
         name: 'task 123',
         date: '12/56/12',
-        id: ''
+        id: 1
     }, {
         name: 'task 1234',
         date: '12/56/12',
-        id: ''
+        id: 2
     }, 
     ]
 }
@@ -21,6 +21,17 @@ if (!todoList) {
 function saveList() {
     localStorage.setItem('myToDoList', JSON.stringify(todoList))
 }
+
+
+//Move to utils later
+//Random number generator
+function getRandomID() {
+    const min = 10000
+    const max = 99999
+    return Math.floor(Math.random() * (max-min + 1) + min);
+}
+
+console.log(getRandomID())
 
 
 
@@ -32,12 +43,18 @@ function todoListHTML() {
         HTML += `<div class = "toDoListRow">
         <div class = "tableElement">${item.name}</div>
         <div class = "tableElement">${item.date}</div>
-        <div class = "tableElement">Remove #3</div>
+        <button class = delete-button >Delete</button>
         <div class = "tableElement">Edit #4</div>
     </div>`
     }) 
     document.querySelector('.toDoList').innerHTML = HTML;
 }
+
+
+
+
+
+
 
 //Functionality
 
@@ -48,13 +65,14 @@ function todoListHTML() {
         todoList.push({
             name: taskName,
             date: taskDate,
+            id: getRandomID(),
         });
         todoListHTML()
         saveList()
     })
-
-
-
-
-
 todoListHTML();
+console.log(todoList)
+
+
+
+
