@@ -39,24 +39,41 @@ console.log(getRandomID())
 //Generating HTML
 function todoListHTML() {
     let HTML = '';
-    todoList.forEach((item) => {
-        HTML += `<div class = "toDoListRow">
-        <div class = "tableElement">${item.name}</div>
-        <div class = "tableElement">${item.date}</div>
-        <button class = delete-button >Delete</button>
+    todoList.forEach((task) => {
+        HTML += `<div class = "toDoListRow"">
+        <div class = "tableElement">${task.name}</div>
+        <div class = "tableElement">${task.date}</div>
+        <button class = "tableElement delete-button" data-task-id="${task.id}">Delete</button >
         <div class = "tableElement">Edit #4</div>
     </div>`
     }) 
     document.querySelector('.toDoList').innerHTML = HTML;
+
+    document.querySelectorAll('.delete-button').forEach((button) =>
+    button.addEventListener('click', () => {
+        const taskIdToRemove = Number(button.dataset.taskId);
+        let newTodoList = [];
+        todoList.forEach((task) => {
+            if (task.id !== taskIdToRemove) {
+                newTodoList.push(task);
+            }
+        })
+        todoList = newTodoList;
+        saveList()
+        todoListHTML()
+    }
+    )
+    )
 }
-
-
-
-
-
-
-
+todoListHTML();
 //Functionality
+
+
+
+
+
+
+
 
     //Addto Cart
     document.querySelector('.js-taskAddButton').addEventListener("click", () => {
@@ -70,7 +87,6 @@ function todoListHTML() {
         todoListHTML()
         saveList()
     })
-todoListHTML();
 console.log(todoList)
 
 
