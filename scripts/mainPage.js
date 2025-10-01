@@ -1,4 +1,8 @@
-//Load and save data
+import { getRandomID } from "./utils/generalUtils.js";
+
+
+
+//DATA
 let todoList;
 let editedTask = null;
 loadList();
@@ -19,25 +23,11 @@ if (!todoList) {
 }
 }
 
-function saveList() {
+function saveList() {    //Save to storage
     localStorage.setItem('myToDoList', JSON.stringify(todoList))
 }
 
-
-//Move to utils later
-//Random number generator
-function getRandomID() {
-    const min = 10000
-    const max = 99999
-    return Math.floor(Math.random() * (max-min + 1) + min);
-}
-
-console.log(getRandomID())
-
-
-
-
-//Generating HTML
+//GENERATING HTML
 function todoListHTML() {
     let HTML = '';
     todoList.forEach((task) => {
@@ -53,9 +43,17 @@ function todoListHTML() {
     </div>`
     }) 
     document.querySelector('.toDoList').innerHTML = HTML;
+    //Add button handles
+    deleteTaskHandles()
+    editTasksHandles()
+
+}
 
 
-    //delete button functionality
+//EVENT HANDLES
+
+//Delete task
+function deleteTaskHandles() {
     document.querySelectorAll('.delete-button').forEach((button) =>
     button.addEventListener('click', () => {
         const taskIdToRemove = Number(button.dataset.taskId);
@@ -68,11 +66,12 @@ function todoListHTML() {
         todoList = newTodoList;
         saveList()
         todoListHTML()
-    }
-    )
-)
+    })
+)};
 
-    //edit button functionality
+//Edit task handles
+
+function editTasksHandles() {
     document.querySelectorAll('.edit-button').forEach((button) =>
     button.addEventListener('click', () => {
         const taskId = Number(button.dataset.taskId); //gets task id
@@ -84,12 +83,16 @@ function todoListHTML() {
 
         document.querySelector(".js-name-input").value = editedTask.name; //load current name
         document.querySelector(".js-date-input").value = editedTask.date; //load current date
-        document.querySelector(".js-saveButton").classList.remove("save-button-hide") //show save button
+        document.querySelector(".js-saveButton").classList.remove("button-hide") //show save button
+        document.querySelector(".js-taskAddButton").classList.add("button-hide")//hide add button
 
     }
     ))
 }
 
+
+
+//Save edits
 document.querySelector(".js-saveButton").addEventListener("click", () => {     //adds function to the save button
     if (!editedTask) {
         return;
@@ -101,15 +104,13 @@ document.querySelector(".js-saveButton").addEventListener("click", () => {     /
     saveList()
     todoListHTML()  
 
-    document.querySelector(".js-saveButton").classList.add("save-button-hide")  //hides save button
+    document.querySelector(".js-saveButton").classList.add("button-hide")  //hides save button
+    document.querySelector(".js-taskAddButton").classList.remove("button-hide") //show add button
     editedTask = null;
 
 })
 
-
-
-//Functionality
-    //Add to Cart
+//Add new task
 document.querySelector('.js-taskAddButton').addEventListener("click", () => {
     const taskName = document.querySelector('.js-name-input').value;
     const taskDate = document.querySelector('.js-date-input').value;
@@ -126,3 +127,4 @@ document.querySelector('.js-taskAddButton').addEventListener("click", () => {
 
 //Start the page
 todoListHTML();
+loadList();
