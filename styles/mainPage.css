@@ -85,6 +85,7 @@ button {
     flex: none;
     align-self: center;
     width: auto;
+    cursor: pointer;
 }
 .delete-button {
     background-color: rgb(163, 28, 28);
@@ -92,4 +93,8 @@ button {
 
 .add-button {
     background-color: rgb(18, 95, 35);
+}
+
+.edit-button {
+    background-color: rgb(162, 122, 14);
 }

@@ -44,13 +44,17 @@ function todoListHTML() {
         <div class = "tableElement">${task.name}</div>
         <div class = "tableElement">${task.date}</div>
         <div class = "tableElement">
-            <button class = "delete-button" data-task-id="${task.id}">Delete</button >
+            <button class = "delete-button" data-task-id="${task.id}">Delete</button>
         </div>
-        <div class = "tableElement">Edit #4</div>
+        <div class = "tableElement">
+            <button class = "edit-button" data-task-id="${task.id}">Edit</button>
+        </div>
     </div>`
     }) 
     document.querySelector('.toDoList').innerHTML = HTML;
 
+
+    //delete button functionality
     document.querySelectorAll('.delete-button').forEach((button) =>
     button.addEventListener('click', () => {
         const taskIdToRemove = Number(button.dataset.taskId);
@@ -65,7 +69,18 @@ function todoListHTML() {
         todoListHTML()
     }
     )
-    )
+)
+
+    //edit button functionality
+    document.querySelectorAll('.edit-button').forEach((button) =>
+    button.addEventListener('click', () => {
+        const taskId = Number(button.dataset.taskId);
+        console.log(taskId)
+    }
+    ))
+
+
+
 }
 
 
@@ -81,10 +96,9 @@ function todoListHTML() {
         });
         todoListHTML()
         saveList()
-    })
-    console.log(todoList)
-
-
+        document.querySelector('.js-name-input').value = ""
+        document.querySelector('.js-date-input').value = ""
+    });
 
 //Start the page
 todoListHTML();
