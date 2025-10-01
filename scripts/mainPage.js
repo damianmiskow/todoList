@@ -43,7 +43,9 @@ function todoListHTML() {
         HTML += `<div class = "toDoListRow"">
         <div class = "tableElement">${task.name}</div>
         <div class = "tableElement">${task.date}</div>
-        <button class = "tableElement delete-button" data-task-id="${task.id}">Delete</button >
+        <div class = "tableElement">
+            <button class = "delete-button" data-task-id="${task.id}">Delete</button >
+        </div>
         <div class = "tableElement">Edit #4</div>
     </div>`
     }) 
@@ -65,16 +67,9 @@ function todoListHTML() {
     )
     )
 }
-todoListHTML();
+
+
 //Functionality
-
-
-
-
-
-
-
-
     //Addto Cart
     document.querySelector('.js-taskAddButton').addEventListener("click", () => {
         const taskName = document.querySelector('.js-name-input').value;
@@ -87,8 +82,9 @@ todoListHTML();
         todoListHTML()
         saveList()
     })
-console.log(todoList)
+    console.log(todoList)
 
 
 
-
+//Start the page
+todoListHTML();
