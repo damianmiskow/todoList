@@ -98,3 +98,12 @@ button {
 .edit-button {
     background-color: rgb(162, 122, 14);
 }
+
+.save-button {
+    background-color: rgb(162, 122, 14);
+}
+
+.save-button-hide {
+    display: none;
+}
+

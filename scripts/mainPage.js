@@ -1,5 +1,6 @@
 //Load and save data
 let todoList;
+let editedTask = null;
 loadList();
 function loadList() {
     todoList = JSON.parse(localStorage.getItem('myToDoList'))
@@ -7,13 +8,13 @@ function loadList() {
 if (!todoList) {
     todoList = [{
         name: 'task 123',
-        date: '12/56/12',
+        date: '2025-10-01',
         id: 1
     }, {
         name: 'task 1234',
-        date: '12/56/12',
+        date: '2025-10-15',
         id: 2
-    }, 
+    } 
     ]
 }
 }
@@ -74,31 +75,54 @@ function todoListHTML() {
     //edit button functionality
     document.querySelectorAll('.edit-button').forEach((button) =>
     button.addEventListener('click', () => {
-        const taskId = Number(button.dataset.taskId);
-        console.log(taskId)
+        const taskId = Number(button.dataset.taskId); //gets task id
+        todoList.forEach((task) => { //find the task
+            if (taskId === task.id) {
+                editedTask = task;
+            }
+        });
+
+        document.querySelector(".js-name-input").value = editedTask.name; //load current name
+        document.querySelector(".js-date-input").value = editedTask.date; //load current date
+        document.querySelector(".js-saveButton").classList.remove("save-button-hide") //show save button
+
     }
     ))
-
-
-
 }
+
+document.querySelector(".js-saveButton").addEventListener("click", () => {     //adds function to the save button
+    if (!editedTask) {
+        return;
+    }
+    editedTask.name = document.querySelector(".js-name-input").value; //saves new value for name
+    editedTask.date = document.querySelector(".js-date-input").value; //saves new value for date
+    document.querySelector(".js-name-input").value = ""; //clears values for name
+    document.querySelector(".js-date-input").value = ""; //clears values for date
+    saveList()
+    todoListHTML()  
+
+    document.querySelector(".js-saveButton").classList.add("save-button-hide")  //hides save button
+    editedTask = null;
+
+})
+
 
 
 //Functionality
-    //Addto Cart
-    document.querySelector('.js-taskAddButton').addEventListener("click", () => {
-        const taskName = document.querySelector('.js-name-input').value;
-        const taskDate = document.querySelector('.js-date-input').value;
-        todoList.push({
-            name: taskName,
-            date: taskDate,
-            id: getRandomID(),
-        });
-        todoListHTML()
-        saveList()
-        document.querySelector('.js-name-input').value = ""
-        document.querySelector('.js-date-input').value = ""
+    //Add to Cart
+document.querySelector('.js-taskAddButton').addEventListener("click", () => {
+    const taskName = document.querySelector('.js-name-input').value;
+    const taskDate = document.querySelector('.js-date-input').value;
+    todoList.push({
+        name: taskName,
+        date: taskDate,
+        id: getRandomID(),
     });
+    todoListHTML()
+    saveList()
+    document.querySelector('.js-name-input').value = ""
+    document.querySelector('.js-date-input').value = ""
+});
 
 //Start the page
 todoListHTML();
