@@ -12,11 +12,13 @@ if (!todoList) {
     todoList = [{
         name: 'task 123',
         date: '2025-10-01',
-        id: 1
+        id: 1,
+        details: '123'
     }, {
         name: 'task 1234',
         date: '2025-10-15',
-        id: 2
+        id: 2,
+        details: ''
     } 
     ]
 }
@@ -115,17 +117,22 @@ document.querySelector(".js-saveButton").addEventListener("click", () => {     /
 document.querySelector('.js-taskAddButton').addEventListener("click", () => {
     const taskName = document.querySelector('.js-name-input').value;
     const taskDate = document.querySelector('.js-date-input').value;
+    const taskDetails = document.querySelector('.js-task-details-input').value;
     todoList.push({
         name: taskName,
         date: taskDate,
         id: getRandomID(),
+        details: taskDetails
     });
     todoListHTML()
     saveList()
-    document.querySelector('.js-name-input').value = ""
+    document.querySelector('.js-name-input').value = "" //clear values
     document.querySelector('.js-date-input').value = ""
+    document.querySelector('.js-date-input').value = ""
+    console.log(document.querySelector('.js-task-details-input').value)
     console.log(todoList)
 });
+
 
 //Start the page
 todoListHTML();

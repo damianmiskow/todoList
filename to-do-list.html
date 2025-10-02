@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>ToDoList</title>
+        <title>Task List</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 
         <!-- header --> 
         <div class = "header">
-            <div class = "page-title"> To-do List</div>
+            <div class = "page-title"> Task List</div>
         </div>
         
         <div class = "entireTable">
@@ -28,6 +28,7 @@
                 <div class = "toDoListRow">
                 </div>
             </div>
+            <p class = "new-task-title">Create New Task</p>
             <!-- table task add -->
             <div class = "inputRow">
                 <input class = "js-name-input name-input" type="text" placeholder=" Enter name of Task:">
@@ -36,8 +37,9 @@
                 <button class = "js-saveButton save-button button-hide button-hide">Save</button>
 
             </div> 
-            <div class = "task-detailss">
-                <input>
+
+            <div class = "task-details-row">
+                <textarea class = "task-details-input js-task-details-input" placeholder="Enter details for the task:"></textarea>
             </div>
         </div>
         
