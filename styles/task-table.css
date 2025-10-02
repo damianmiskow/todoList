@@ -1,27 +1,11 @@
-/* main */
-
-.page-title {
-    color: black;
-    font-weight: bold;
-    font-size: 50px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+.entireTable {
+    border: 5px;
+    border: solid;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
-.header {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgb(127, 141, 146);
-    justify-content: center;
-    
-}
-
-
-/* table related */
-.tableElement {
+.tableElement { /* each table cell */
     flex: 1;
     display: flex;
     justify-content: center;
@@ -30,7 +14,7 @@
 }
 
 
-.titleRow {
+.titleRow { /* title row */
     margin-top: 10px;
     margin-left: 25px;
     margin-right: 25px;
@@ -39,21 +23,23 @@
     font-size: 28px;
     font-weight: bold;
     padding: 5px;
-    background-color: rgb(127, 141, 146);
+    background-color: rgba(127, 141, 146);
     border-width: 2px;
 
 }
 
-.toDoListRow {
-    margin-top: 10px;
+.toDoListRow { /* display tasks */
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-left: 25px;
     margin-right: 25px;
     display: flex;
     font-size: 20px;
 }
 
-.inputRow {
-    margin-top: 50px;
+.inputRow {  /* input rows */
+    margin-top: 30px;
+    margin-bottom: 30px;
     margin-left: 25px;
     margin-right: 25px;
     display: flex;
@@ -64,29 +50,16 @@
 
 }
 
-.name-input {
+
+.name-input {  /* task name input */
     width: 500px;
 }
 
 .date-input {
-    width: 200px;
+    width: 200px; /* task date input */
     
 }
 
-
-button {
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 20px;
-    width: 80px;
-    height: 30px;
-    font-size: 20px;
-    flex: none;
-    align-self: center;
-    width: auto;
-    cursor: pointer;
-}
 .delete-button {
     background-color: rgb(163, 28, 28);
 }
@@ -105,5 +78,9 @@ button {
 
 .button-hide {
     display: none;
+}
+
+.toDoListRow:nth-child(even) {
+    background-color: rgba(127, 141, 146, 0.75);
 }
 

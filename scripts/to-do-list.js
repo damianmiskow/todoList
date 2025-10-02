@@ -1,5 +1,4 @@
-import { getRandomID } from "./utils/generalUtils.js";
-
+import { getRandomID } from "./utils/utils.js";
 
 
 //DATA
@@ -31,8 +30,10 @@ function saveList() {    //Save to storage
 function todoListHTML() {
     let HTML = '';
     todoList.forEach((task) => {
-        HTML += `<div class = "toDoListRow"">
-        <div class = "tableElement">${task.name}</div>
+        HTML += `<div class = "toDoListRow">
+        <div class = "tableElement">
+            <a href ="task-details.html?id=${task.id}" target="_blank">${task.name}</a>
+        </div>
         <div class = "tableElement">${task.date}</div>
         <div class = "tableElement">
             <button class = "delete-button" data-task-id="${task.id}">Delete</button>
@@ -123,6 +124,7 @@ document.querySelector('.js-taskAddButton').addEventListener("click", () => {
     saveList()
     document.querySelector('.js-name-input').value = ""
     document.querySelector('.js-date-input').value = ""
+    console.log(todoList)
 });
 
 //Start the page
