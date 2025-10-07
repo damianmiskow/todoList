@@ -107,3 +107,6 @@ document.querySelector('.js-taskAddButton').addEventListener("click", () => {
     console.log(todoList)
 });
 
+document.querySelector(".js-attach-files").addEventListener("click", () => {
+    document.querySelector(".js-file-input").click();
+})
