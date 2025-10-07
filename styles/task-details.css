@@ -1,0 +1,19 @@
+.task-name,
+.task-details {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.task-details {
+    font-size: 24px;
+    font-weight: 100;
+    margin-top: 10px;
+    text-decoration: none;
+}
+

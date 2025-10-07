@@ -1,9 +1,9 @@
 .general {
-    background-color: white;
     font-family: Roboto;
-    background-color: 485b6e;
+    background-color: transparent;
     height: 2000px;
     margin-top: 80px;
+    position: relative;
     
 }
 
@@ -21,7 +21,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(127, 141, 146, 0.75);
+    background-color: rgba(127, 141, 146, 0.9);
     justify-content: center;
     
 }
@@ -40,34 +40,26 @@ button {
     cursor: pointer;
 }
 
-.toDoListRow a {
-    color: black;
-    text-decoration: none;
+.overlay {
+    z-index: -1;
+    background-color: rgba(127, 141, 146, 0.85);
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+
 }
 
-.task-details-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
-}
 
-.task-details-input {
-    width: 500px;
-    height: 100px;
-    resize: vertical;
-    padding: 10px;
-    font-family: Roboto;
-}
-
-.date-input {
-    font-family: Roboto;
-}
-
-.new-task-title{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    font-weight: bold;
+.background {
+    background-image: url('../../images/background.jpg');
+    background-size: cover;
+    position: fixed;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -2;
 }
