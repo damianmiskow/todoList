@@ -10,7 +10,7 @@ export function todoListHTML() {
     todoList.forEach((task) => {
         HTML += `<div class = "toDoListRow">
         <div class = "tableElement">
-            <a href ="task-details.html?id=${task.id}" target="_blank">${task.name}</a>
+            <a href ="task-details.html?id=${task.id}">${task.name}</a>
         </div>
         <div class = "tableElement">${task.date}</div>
         <div class = "tableElement">
@@ -40,9 +40,6 @@ function deleteTaskHandles() {
         todoListHTML()
     })
 )};
-
-//EVENT HANDLES
-
 
 
 //Edit task handles

@@ -18,33 +18,30 @@ function loadList() {
         ];
     }
 }
-
-function getToDoList() {
-    return todoList;
-}
-
 function saveList() {    //Save to storage
     localStorage.setItem('myToDoList', JSON.stringify(todoList))
 }
 
-function setEditedTask(task) {
+function setEditedTask(task) { //set a task to be edited
     editedTask = task;
 }
 
-function getEditedTask() {
+function getEditedTask() { //sends data about the task about to be edited
     return editedTask;
 }
 
 
-function getTask(id) {
+function getTask(id) { //get task
+    let foundTask;
     todoList.forEach((task) => {
         if (task.id === id) {
-            return task
+            foundTask = task;
         }
-    })
+    });
+    return foundTask
 }
 
 
 
 
-export { todoList, loadList, saveList, setEditedTask, getEditedTask, getTask}
+export {todoList, loadList, saveList, setEditedTask, getEditedTask, getTask}
