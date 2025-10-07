@@ -3,6 +3,7 @@
     border: solid;
     margin-left: 25px;
     margin-right: 25px;
+    border-radius: 10px;
 }
 
 .tableElement { /* each table cell */
@@ -25,6 +26,7 @@
     padding: 5px;
     background-color: rgba(127, 141, 146);
     border-width: 2px;
+    border-radius: 10px;
 
 }
 

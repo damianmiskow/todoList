@@ -63,3 +63,22 @@ button {
     left: 0px;
     z-index: -2;
 }
+
+.right-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.js-home-page {
+    background-color: transparent;
+    border: 1px;
+    color: black;
+    border-radius: 10px;
+    border: solid;
+    padding-bottom: 25px;
+}
+
+.js-home-page:hover {
+    background-color: rgb(146, 153, 165);
+}
